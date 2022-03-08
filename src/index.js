@@ -68,19 +68,56 @@ header.querySelector("img").src = "https://upload.wikimedia.org/wikipedia/common
 
 //  B- Using .setAttribute to change a few attributes
 imageFirstCard.src = "https://static.wikia.nocookie.net/dog/images/7/7e/Americanstaffordterrier.jpeg/revision/latest/top-crop/width/360/height/450?cb=20201129045715"
+link1FirstCard.setAttribute("href", "https://www.pexels.com/search/dog/");
+link2FirstCard.href = "https://doggoipsum.com/";
 
 // 👉 5- Changing the styling of an element
-//  A- By changing the class names on the element with the classList API
-//  B- By manipulating inline styles on the element
 
+//  A- By changing the class names on the element with the classList API
+header.classList.add("sky");
+
+//  B- By manipulating inline styles on the element
+header.style.fontSize = "2em";
+
+//header.style.display = "none";
 
 // 👉 6- Creating new elements from scratch and appending them
 // Create a new link inside the nav for "Blog"
+const blogLink = document.createElement("a");
+blogLink.textContent = "Blog";
+blogLink.href = "#"; 
+document.querySelector("nav").appendChild(blogLink);
+blogLink.classList.add("menu-item");
 
 
 // 👉 7- Making a copy of the card and appending it to the card group
 // DOM nodes can only exist in one spot in the DOM
 // We cannot append the same copy multiple times
+
+const data =   {
+    "contact": {
+      "contact-heading" : "Contact",
+      "address" : "123 Way 456 Street Somewhere, USA",
+      "phone" : "1 (888) 888-8888",
+      "email" : "sales@greatidea.io",
+    }
+  };
+
+const contactHeading = document.querySelector(".contact-heading");
+const address = document.querySelector(".address");
+
+contactHeading.textContent = data["contact"]["contact-heading"]; 
+address.textContent = data["contact"]["address"];
+
+/**Objects 
+ * 
+ * dot notation -> person.name = "Casey";
+ * 
+ * hyphen or variable -> bracket notation -> person["name"] = "Casey";
+ * const valToUpdate = "name";
+ * person[valToUpdate] = "casey";
+ * person["first-name"]; 
+*/
 
 
 // 👉 8- Removing an existing element and putting it back [STRETCH if time allows]
