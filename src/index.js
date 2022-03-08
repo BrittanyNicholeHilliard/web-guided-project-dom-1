@@ -3,27 +3,57 @@
 //  Newer: querySelector, querySelectorAll
 //  Select the following single elements from the div.card
 
+// getElementById
+const elem = document.getElementById("logoTitle");
+//console.log(elem) //=> DOM node
+
+// getElementsByTagName
+const elems = document.getElementsByTagName("div");
+//console.log(elems) // => DOM node list 
+
+//getElementsByClassName
+const classElems = document.getElementsByClassName("menu-item");
+//console.log(classElems) // => DOM node list
+
+//querySelector -- returns first element it finds
+const funElem= document.querySelector(". card") //==> Targets anything classed as card in css file
+const navElem = document.querySelector("#mainNav")
+
+//querySelectorAll -returns node list of all elements that match
+const menuElems =document.querySelectorAll("menu-item");
+
 // A- finding across the entire DOM
-const header = null
-const logoTitle = null
-const firstCard = null
+const header = document.querySelector('header');
+const logoTitle = document.querySelector('#logoTitle');
+const firstCard = document.querySelector(".card:nth-of-type('1')");
 // B- finding within one particular element
-const imageFirstCard = null
-const titleFirstCard = null
-const subtitleFirstCard = null
-const textFirstCard = null
+const imageFirstCard = firstCard.querySelector("img");
+const titleFirstCard = firstCard.querySelector("h2");
+const subtitleFirstCard = firstCard.querySelector("h3");
+const textFirstCard = firstCard.querySelector("p");
 // C- traversing with dot notation
-const link1FirstCard = null
-const link2FirstCard = null
+const link1FirstCard = firstCard.nextElementSibling;
+const link2FirstCard = link1FirstCard.nextElementSibling;
 
 
 // 👉 2- Finding collections of elements in the DOM
 // A- Find all the anchor tags inside the nav element
+const links = document.querySelectorAll("nav a"); 
+
 // B- Loop over the links and console.log their text content
+links.forEach((link) => {
+    console.log(link.textContent);
+})
+
 // C- Turn the collection of links into a real array
+const linksRealArray = Array.from(links);
+
 // D- Use .filter to find the anchor tag with the textContent of "Home"
+const homeElem = linksRealArray.find(link => {
+    link.textContent === "Home";
+});
 
-
+console.log(homeElem);
 // 👉 3- Changing an element's text content
 //  A- Change the cat-related content into dog-related content
 //  B- Have the students research online the difference between textContent and innerText
